@@ -1,5 +1,20 @@
-
 const obtenerChiste = require("./library");
 
-// Usar la funcion obtenerChiste() la cual devuelve la promesa de traer el objeto chiste extraido
-obtenerChiste();
+// Codigo funcion callback
+
+let verChiste = function(chiste)
+{
+    let chisteDescargado= chiste [0];
+    console.log(chisteDescargado.setup);
+    console.log(chisteDescargado.punchline);
+}
+
+// Fin codigo
+
+// Usar la funcion obtenerChiste(funcionCallback) en donde funcionCallback es una función que recibe el objeto chiste extraido
+obtenerChiste()
+.then((chiste) => {
+    verChiste(chiste);
+}).catch((err) => {
+    console.log("No se encontro el chiste")
+});
